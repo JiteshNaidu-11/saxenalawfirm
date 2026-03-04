@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from "react";
 import { C } from "../../data/constants";
 import { TEAM } from "../../data/team";
 import { FOCUS_AREAS } from "../../data/focusAreas";
@@ -6,41 +5,26 @@ import { BLOG_POSTS } from "../../data/blog";
 import { FadeIn, SLabel, SHeading } from "../common/CommonComponents";
 
 export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => {
-  const statsRef = useRef(null);
-  const [counts, setCounts] = useState([0, 0, 0, 0]);
-  const [cDone, setCDone] = useState(false);
-  const statNums = [2500, 25, 98, 15];
+  const statCards = [
+    { value: "2500+", label: "Cases Handled" },
+    { value: "25+", label: "Years of Practice" },
+    { value: "98%", label: "Client Satisfaction" },
+    { value: "15+", label: "Expert Advocates" },
+  ];
 
-  useEffect(() => {
-    const ob = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !cDone) {
-        setCDone(true);
-        statNums.forEach((n, i) => {
-          let v = 0; const step = n / 55;
-          const t = setInterval(() => {
-            v += step;
-            if (v >= n) { v = n; clearInterval(t); }
-            setCounts(p => { const a = [...p]; a[i] = Math.floor(v); return a; });
-          }, 20);
-        });
-      }
-    }, { threshold: .3 });
-    if (statsRef.current) ob.observe(statsRef.current);
-    return () => ob.disconnect();
-  }, [cDone]);
 
   const scrollTo = id => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); };
 
   return (
     <div>
       {/* HERO */}
-      <section id="home" style={{ minHeight: "100vh", background: `linear-gradient(145deg, ${C.navy} 0%, #163472 45%, #1F55B0 100%)`, display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
-        <div className="dot-bg-w" style={{ position: "absolute", inset: 0, opacity: .4 }} />
+      <section id="home" style={{ minHeight: "100vh", background: "linear-gradient(145deg, #133D86 0%, #1E4F9D 48%, #2A62B8 100%)", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
+        <div className="dot-bg-w" style={{ position: "absolute", inset: 0, opacity: .26 }} />
         <div style={{ position: "absolute", right: "-6%", top: "8%", width: 480, height: 480, borderRadius: "50%", border: "1px solid rgba(255,255,255,.06)" }} />
         <div style={{ position: "absolute", right: "4%", top: "16%", width: 340, height: 340, borderRadius: "50%", border: "1px solid rgba(255,255,255,.04)" }} />
         <div style={{ position: "absolute", left: "-10%", bottom: "-14%", width: 500, height: 500, borderRadius: "50%", background: "rgba(255,255,255,.018)" }} />
 
-        <div style={{ maxWidth: 1300, margin: "0 auto", padding: "120px 5% 80px", width: "100%", display: "grid", gridTemplateColumns: "1.2fr .8fr", gap: 56, alignItems: "center" }}>
+        <div className="g2" style={{ maxWidth: 1300, margin: "0 auto", padding: "120px 5% 80px", width: "100%", display: "grid", gridTemplateColumns: "1.2fr .8fr", gap: 56, alignItems: "center" }}>
           <div>
             <div className="h-a1" style={{ display: "inline-flex", alignItems: "center", gap: 9, background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 100, padding: "6px 16px", marginBottom: 24 }}>
               <span className="pulse-dot" style={{ width: 7, height: 7, borderRadius: "50%", background: "#7EC8E3", display: "inline-block" }} />
@@ -75,7 +59,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <div className="float hide-mob" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             <div style={{ background: "rgba(255,255,255,.97)", borderRadius: 10, padding: "26px 28px", boxShadow: "0 24px 64px rgba(10,20,60,.3)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-                <span style={{ fontSize: 28 }}>⚖️</span>
+                <span style={{ fontSize: 28, color: "#2E6DD4" }}>{"\u2696"}</span>
                 <div><div className="serif" style={{ fontSize: 17, color: C.navy }}>Free Legal Consultation</div>
                   <div className="sans" style={{ fontSize: 12, color: C.muted }}>Speak with a senior advocate today</div></div>
               </div>
@@ -91,14 +75,23 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
               <button className="btn-navy" style={{ width: "100%", marginTop: 14 }} onClick={() => scrollTo("contact")}>Get Started →</button>
             </div>
             <div style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13 }}>
-              <span style={{ fontSize: 24 }}>📞</span>
+              <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
+              <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
+                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98765 43210</div></div>
+            </div>
+          </div>
+
+          {/* Mobile Phone Button */}
+          <div className="show-mob" style={{ display: "none" }}>
+            <div style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13 }}>
+              <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
                 <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98765 43210</div></div>
             </div>
           </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)", textAlign: "center", animation: "hFadeUp .7s ease 1.1s both" }}>
+        <div style={{ position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)", textAlign: "center", animation: "hFadeUp 1.2s ease 1.25s both" }}>
           <div className="sans" style={{ fontSize: 9.5, letterSpacing: 3, color: "rgba(255,255,255,.3)", textTransform: "uppercase", marginBottom: 9 }}>Scroll</div>
           <div className="bob" style={{ width: 1, height: 32, background: "linear-gradient(to bottom,rgba(255,255,255,.5),transparent)", margin: "0 auto" }} />
         </div>
@@ -122,7 +115,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                   </div>
                 </div>
               </div>
-              <div style={{ position: "absolute", bottom: -18, right: -18, background: C.navy, color: "#fff", padding: "17px 22px", borderRadius: 6, boxShadow: "0 10px 32px rgba(15,45,94,.28)", textAlign: "center" }}>
+              <div className="about-years-badge" style={{ position: "absolute", bottom: -18, right: -18, background: C.navy, color: "#fff", padding: "17px 22px", borderRadius: 6, boxShadow: "0 10px 32px rgba(15,45,94,.28)", textAlign: "center" }}>
                 <div className="serif" style={{ fontSize: 28 }}>25+</div>
                 <div className="sans" style={{ fontSize: 10, opacity: .8, letterSpacing: 1.5 }}>Years of Practice</div>
               </div>
@@ -185,14 +178,14 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
       </section>
 
       {/* STATS */}
-      <section style={{ padding: "64px 5%", background: `linear-gradient(135deg,${C.navy},${C.blue})`, position: "relative", overflow: "hidden" }} ref={statsRef}>
+      <section style={{ padding: "64px 5%", background: "linear-gradient(145deg, #133D86 0%, #1E4F9D 50%, #2A62B8 100%)", position: "relative", overflow: "hidden" }}>
         <div className="dot-bg-w" style={{ position: "absolute", inset: 0, opacity: .35 }} />
         <div style={{ maxWidth: 1300, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, position: "relative" }} className="g-stat">
-          {[["Cases Handled", "+"], ["Years of Practice", "+"], ["Client Satisfaction", "%"], ["Expert Advocates", "+"]].map(([l, s], i) => (
-            <div key={l} style={{ textAlign: "center", padding: "20px 12px" }}>
-              <div className="serif" style={{ fontSize: "clamp(42px,4.5vw,62px)", color: "#fff", lineHeight: 1, marginBottom: 10 }}>{counts[i]}{s}</div>
+          {statCards.map(card => (
+            <div key={card.label} style={{ textAlign: "center", padding: "20px 12px" }}>
+              <div className="serif" style={{ fontSize: "clamp(42px,4.5vw,62px)", color: "#7EC8E3", lineHeight: 1, marginBottom: 10 }}>{card.value}</div>
               <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.2)", width: 40, margin: "0 auto 12px" }} />
-              <div className="sans" style={{ fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,.55)", textTransform: "uppercase" }}>{l}</div>
+              <div className="sans" style={{ fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,.55)", textTransform: "uppercase" }}>{card.label}</div>
             </div>
           ))}
         </div>
@@ -341,7 +334,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
             <FadeIn dir="right">
               <div style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 8, padding: "42px 38px", boxShadow: "0 8px 40px rgba(15,45,94,.07)" }}>
                 <div className="serif" style={{ fontSize: 22, color: C.navy, marginBottom: 24 }}>Send Us a Message</div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+                <div className="g2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                   {[["Full Name", "Your full name"], ["Phone", "+91 xxxxx xxxxx"]].map(([l, p]) => (
                     <div key={l}>
                       <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>{l}</label>
@@ -407,3 +400,4 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
     </div>
   );
 };
+

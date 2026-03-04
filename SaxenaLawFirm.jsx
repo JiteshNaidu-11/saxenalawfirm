@@ -461,6 +461,7 @@ const GLOBAL_CSS = `
 
   @media(max-width:900px){
     .hide-mob{display:none!important}
+    .show-mob{display:flex!important}
     .g2{grid-template-columns:1fr!important}
     .g3{grid-template-columns:1fr 1fr!important}
     .g4{grid-template-columns:1fr 1fr!important}
@@ -532,27 +533,10 @@ const Navbar = ({ page, setPage, scrolled, mobileOpen, setMobileOpen }) => {
 /* ─── HOME PAGE ────────────────────────────────────── */
 const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => {
   const statsRef = useRef(null);
-  const [counts, setCounts] = useState([0, 0, 0, 0]);
+  const [counts, setCounts] = useState([0, 0, 0]);
   const [cDone, setCDone] = useState(false);
-  const statNums = [2500, 25, 98, 15];
-
-  useEffect(() => {
-    const ob = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !cDone) {
-        setCDone(true);
-        statNums.forEach((n, i) => {
-          let v = 0; const step = n / 55;
-          const t = setInterval(() => {
-            v += step;
-            if (v >= n) { v = n; clearInterval(t); }
-            setCounts(p => { const a = [...p]; a[i] = Math.floor(v); return a; });
-          }, 20);
-        });
-      }
-    }, { threshold: .3 });
-    if (statsRef.current) ob.observe(statsRef.current);
-    return () => ob.disconnect();
-  }, [cDone]);
+  const statNums = [2500, 25, 98];
+  const statLabels = ["Cases", "Years", "Satisfaction"];
 
   const scrollTo = id => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); };
 
@@ -586,7 +570,7 @@ const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => 
               <button className="btn-ghost-w" onClick={() => scrollTo("focus-areas")}>Our Practice Areas</button>
             </div>
 
-            <div className="h-a5" style={{ display: "flex", gap: 40, marginTop: 52, paddingTop: 36, borderTop: "1px solid rgba(255,255,255,.12)" }}>
+            <div ref={statsRef} className="h-a5" style={{ display: "flex", gap: 40, marginTop: 52, paddingTop: 36, borderTop: "1px solid rgba(255,255,255,.12)" }}>
               {[["2500+", "Cases"], ["25+", "Years"], ["98%", "Satisfaction"]].map(([n, l]) => (
                 <div key={l}>
                   <div className="serif" style={{ fontSize: 30, color: "#7EC8E3" }}>{n}</div>
@@ -615,6 +599,15 @@ const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => 
               ))}
               <button className="btn-navy" style={{ width: "100%", marginTop: 14 }} onClick={() => scrollTo("contact")}>Get Started →</button>
             </div>
+            <div style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13 }}>
+              <span style={{ fontSize: 24 }}>📞</span>
+              <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
+                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98765 43210</div></div>
+            </div>
+          </div>
+
+          {/* Mobile Phone Button */}
+          <div className="show-mob" style={{ display: "none" }}>
             <div style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13 }}>
               <span style={{ fontSize: 24 }}>📞</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>

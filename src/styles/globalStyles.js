@@ -1,8 +1,9 @@
 export const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0D1F3C; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0D1F3C; overflow-x: hidden; width: 100%; }
+  #root { width: 100%; overflow-x: hidden; }
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-thumb { background: #2E6DD4; border-radius: 3px; }
 
@@ -68,14 +69,14 @@ export const GLOBAL_CSS = `
   @keyframes scrollBob { 0%,100%{opacity:1;transform:translateY(0)} 50%{opacity:.3;transform:translateY(6px)} }
   @keyframes pulse     { 0%,100%{box-shadow:0 0 0 0 rgba(46,109,212,.4)} 70%{box-shadow:0 0 0 12px rgba(46,109,212,0)} }
 
-  .h-a1{animation:hFadeRight .7s ease .15s both}
-  .h-a2{animation:hFadeUp .75s ease .3s both}
-  .h-a3{animation:hFadeUp .75s ease .5s both}
-  .h-a4{animation:hFadeUp .75s ease .65s both}
-  .h-a5{animation:hFadeUp .75s ease .82s both}
-  .float{animation:floatY 5s ease-in-out infinite}
-  .bob{animation:scrollBob 2s ease-in-out infinite}
-  .pulse-dot{animation:pulse 2.2s infinite}
+  .h-a1{animation:hFadeRight 1.05s ease .2s both}
+  .h-a2{animation:hFadeUp 1.1s ease .35s both}
+  .h-a3{animation:hFadeUp 1.1s ease .55s both}
+  .h-a4{animation:hFadeUp 1.1s ease .75s both}
+  .h-a5{animation:hFadeUp 1.1s ease .95s both}
+  .float{animation:floatY 7.2s ease-in-out infinite}
+  .bob{animation:scrollBob 2.9s ease-in-out infinite}
+  .pulse-dot{animation:pulse 3s infinite}
 
   /* Divider */
   .divider { height:3px; background:linear-gradient(90deg,#0F2D5E,#2E6DD4,#EBF2FF); border:none; border-radius:2px; }
@@ -103,11 +104,15 @@ export const GLOBAL_CSS = `
 
   @media(max-width:900px){
     .hide-mob{display:none!important}
+    .show-mob{display:flex!important}
+    .mobile-menu-btn{display:flex!important}
     .g2{grid-template-columns:1fr!important}
     .g3{grid-template-columns:1fr 1fr!important}
     .g4{grid-template-columns:1fr 1fr!important}
+    .about-years-badge{right:0!important;bottom:0!important}
   }
   @media(max-width:580px){
+    .btn-white,.btn-ghost-w{width:100%}
     .g3{grid-template-columns:1fr!important}
     .g4{grid-template-columns:1fr!important}
     .g-stat{grid-template-columns:1fr 1fr!important}

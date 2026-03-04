@@ -20,7 +20,7 @@ export const BlogPage = ({ setPage, setActiveBlog }) => (
       {/* Featured */}
       <div style={{ marginBottom: 56 }}>
         <div className="sans" style={{ fontSize: 10.5, letterSpacing: 3, color: C.mid, textTransform: "uppercase", marginBottom: 20, fontWeight: 600 }}>Featured Article</div>
-        <div className="lift" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, border: `1px solid ${C.border}`, borderRadius: 10, overflow: "hidden", cursor: "pointer" }} className="g2"
+        <div className="lift g2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, border: `1px solid ${C.border}`, borderRadius: 10, overflow: "hidden", cursor: "pointer" }}
           onClick={() => { setActiveBlog(BLOG_POSTS[0]); setPage("post"); window.scrollTo(0, 0); }}>
           <img src={BLOG_POSTS[0].img} alt={BLOG_POSTS[0].title} style={{ width: "100%", height: 340, objectFit: "cover", display: "block" }} />
           <div style={{ padding: "40px 36px", display: "flex", flexDirection: "column", justifyContent: "center" }}>

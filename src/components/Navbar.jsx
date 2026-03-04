@@ -29,7 +29,7 @@ export const Navbar = ({ page, setPage, scrolled, mobileOpen, setMobileOpen }) =
         </div>
 
         {/* Mobile ham */}
-        <button onClick={() => setMobileOpen(!mobileOpen)} style={{ display: "none", flexDirection: "column", gap: 5, background: "none", border: "none", cursor: "pointer", padding: 8 }} className="g3" >
+        <button onClick={() => setMobileOpen(!mobileOpen)} style={{ display: "none", flexDirection: "column", gap: 5, background: "none", border: "none", cursor: "pointer", padding: 8 }} className="show-mob mobile-menu-btn" >
           {[0, 1, 2].map(i => <div key={i} style={{ width: i === 2 ? 14 : 22, height: 2, background: showLight ? "#fff" : C.navy, borderRadius: 2 }} />)}
         </button>
       </div>
