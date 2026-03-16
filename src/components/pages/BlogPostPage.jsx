@@ -25,7 +25,7 @@ export const BlogPostPage = ({ post, setPage, setActiveBlog }) => (
         <img src={post.authorImg} alt={post.author} style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover" }} />
         <div>
           <div className="serif" style={{ fontSize: 16, color: C.navy }}>{post.author}</div>
-          <div className="sans" style={{ fontSize: 12, color: C.muted }}>Saxena Law Firm · {post.date}</div>
+          <div className="sans" style={{ fontSize: 12, color: C.muted }}>Saxena and Tatke Advocates and Solicitors · {post.date}</div>
         </div>
       </div>
 

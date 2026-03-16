@@ -5,11 +5,13 @@ export const FocusPage = ({ focus, setPage }) => (
     <div style={{ background: `linear-gradient(145deg,${C.navy},${C.blue})`, padding: "64px 5% 56px", position: "relative", overflow: "hidden" }}>
       <div className="dot-bg-w" style={{ position: "absolute", inset: 0, opacity: .35 }} />
       <div style={{ maxWidth: 900, margin: "0 auto", position: "relative" }}>
-        <button className="back-btn" onClick={() => { setPage("home"); setTimeout(() => document.getElementById("focus-areas")?.scrollIntoView({ behavior: "smooth" }), 80); }} style={{ color: "rgba(255,255,255,.7)", marginBottom: 28 }}>
-          ← Back to Practice Areas
-        </button>
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 9, background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 100, padding: "5px 14px", marginBottom: 20 }}>
-          <span className="sans" style={{ fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,.75)", textTransform: "uppercase" }}>Practice Area</span>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12, marginBottom: 20 }}>
+          <button className="back-btn" onClick={() => { setPage("home"); setTimeout(() => document.getElementById("focus-areas")?.scrollIntoView({ behavior: "smooth" }), 80); }} style={{ color: "rgba(255,255,255,.7)" }}>
+            ← Back to Practice Areas
+          </button>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 9, background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 100, padding: "5px 14px" }}>
+            <span className="sans" style={{ fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,.75)", textTransform: "uppercase" }}>Practice Area</span>
+          </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 14 }}>
           <span style={{ fontSize: 42 }}>{focus.icon}</span>

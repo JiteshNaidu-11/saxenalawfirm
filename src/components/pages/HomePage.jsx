@@ -6,10 +6,10 @@ import { FadeIn, SLabel, SHeading } from "../common/CommonComponents";
 
 export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => {
   const statCards = [
-    { value: "2500+", label: "Cases Handled" },
-    { value: "25+", label: "Years of Practice" },
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "15+", label: "Expert Advocates" },
+    { value: "20+", label: "Years (Mitul Saxena)" },
+    { value: "15+", label: "Years (Amit Tatke)" },
+    { value: "Decades", label: "Across Jurisdictions" },
+    { value: "2", label: "Senior Partners" },
   ];
 
 
@@ -28,16 +28,16 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <div>
             <div className="h-a1" style={{ display: "inline-flex", alignItems: "center", gap: 9, background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 100, padding: "6px 16px", marginBottom: 24 }}>
               <span className="pulse-dot" style={{ width: 7, height: 7, borderRadius: "50%", background: "#7EC8E3", display: "inline-block" }} />
-              <span className="sans" style={{ fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,.82)", textTransform: "uppercase" }}>Established 1999 · Nashik, Maharashtra</span>
+              <span className="sans" style={{ fontSize: 11, letterSpacing: 2.5, color: "rgba(255,255,255,.82)", textTransform: "uppercase" }}>Indore, Madhya Pradesh</span>
             </div>
 
             <h1 className="serif h-a2" style={{ fontSize: "clamp(38px,5.5vw,70px)", color: "#fff", lineHeight: 1.08, marginBottom: 22 }}>
-              Defending Rights.<br />
-              <span style={{ color: "#7EC8E3" }}>Delivering Justice.</span>
+              Saxena & Tatke<br />
+              <span style={{ color: "#7EC8E3" }}>Advocates and Solicitors</span>
             </h1>
 
-            <p className="sans h-a3" style={{ fontSize: 17, fontWeight: 300, lineHeight: 1.88, color: "rgba(255,255,255,.68)", maxWidth: 500, marginBottom: 40 }}>
-              25+ years of trusted legal representation across criminal, civil, corporate and family law — by advocates who genuinely care about your outcome.
+            <p className="sans h-a3" style={{ fontSize: 17, fontWeight: 300, lineHeight: 1.88, color: "rgba(255,255,255,.68)", maxWidth: 520, marginBottom: 40 }}>
+              Decades of experience across all jurisdictions. A premier multidisciplinary law firm offering comprehensive legal solutions across civil, criminal, commercial and matrimonial law — with procedural precision and unwavering integrity.
             </p>
 
             <div className="h-a4" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
@@ -46,8 +46,8 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
             </div>
 
             <div className="h-a5" style={{ display: "flex", gap: 40, marginTop: 52, paddingTop: 36, borderTop: "1px solid rgba(255,255,255,.12)" }}>
-              {[["2500+", "Cases"], ["25+", "Years"], ["98%", "Satisfaction"]].map(([n, l]) => (
-                <div key={l}>
+              {[["20+", "Years"], ["15+", "Years"], ["Decades", "Experience"]].map(([n, l]) => (
+                <div key={n}>
                   <div className="serif" style={{ fontSize: 30, color: "#7EC8E3" }}>{n}</div>
                   <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2, color: "rgba(255,255,255,.38)", textTransform: "uppercase", marginTop: 4 }}>{l}</div>
                 </div>
@@ -64,30 +64,34 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                   <div className="sans" style={{ fontSize: 12, color: C.muted }}>Speak with a senior advocate today</div></div>
               </div>
               <hr style={{ border: "none", borderTop: `1px solid ${C.border}`, marginBottom: 14 }} />
-              {["Criminal Defense", "Family & Divorce", "Property Disputes", "Corporate Matters"].map(it => (
-                <div key={it} style={{ display: "flex", alignItems: "center", gap: 9, marginBottom: 8 }}>
-                  <div style={{ width: 16, height: 16, borderRadius: "50%", background: C.pale, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: C.mid }} />
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 16px" }}>
+                {["Civil", "Criminal", "Commercial", "Matrimonial", "Writ Jurisdictions", "Courts & Tribunals", "Consumer", "Banking & Finance"].map(it => (
+                  <div key={it} style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                    <div style={{ width: 16, height: 16, borderRadius: "50%", background: C.pale, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <div style={{ width: 6, height: 6, borderRadius: "50%", background: C.mid }} />
+                    </div>
+                    <span className="sans" style={{ fontSize: 12.5, color: "#374466" }}>{it}</span>
                   </div>
-                  <span className="sans" style={{ fontSize: 13.5, color: "#374466" }}>{it}</span>
-                </div>
-              ))}
+                ))}
+              </div>
               <button className="btn-navy" style={{ width: "100%", marginTop: 14 }} onClick={() => scrollTo("contact")}>Get Started →</button>
             </div>
-            <div style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13 }}>
+            <a href="tel:+919826235300" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98765 43210</div></div>
-            </div>
+                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98262 35300</div>
+                <div className="sans" style={{ fontSize: 10, color: "rgba(255,255,255,.6)" }}>Mitul Saxena · Amit +91 90093 30202</div></div>
+            </a>
           </div>
 
           {/* Mobile Phone Button */}
           <div className="show-mob" style={{ display: "none" }}>
-            <div style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13 }}>
+            <a href="tel:+919826235300" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98765 43210</div></div>
-            </div>
+                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98262 35300</div>
+                <div className="sans" style={{ fontSize: 10, color: "rgba(255,255,255,.6)" }}>Amit +91 90093 30202</div></div>
+            </a>
           </div>
         </div>
 
@@ -105,19 +109,19 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
               <div style={{ background: C.pale, borderRadius: 8, padding: "44px 38px", position: "relative", borderLeft: `5px solid ${C.blue}` }}>
                 <div className="serif" style={{ fontSize: 52, color: C.blue, opacity: .18, lineHeight: 1, marginBottom: 10 }}>"</div>
                 <p className="sans" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.82, color: "#2a3a5e", marginBottom: 28 }}>
-                  Law is not merely a profession for us — it is a responsibility to uphold truth, protect the innocent, and ensure justice prevails in every matter we handle.
+                  We are uniquely positioned to handle complex writ jurisdictions and high-stakes commercial disputes with procedural precision and unwavering integrity.
                 </p>
                 <div style={{ display: "flex", alignItems: "center", gap: 13 }}>
-                  <img src="https://i.pravatar.cc/80?img=11" alt="RS" style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
+                  <img src="https://i.pravatar.cc/80?img=11" alt="MS" style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
                   <div>
-                    <div className="serif" style={{ fontSize: 15, color: C.navy }}>Adv. Rajesh Saxena</div>
-                    <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2, color: C.mid, textTransform: "uppercase" }}>Founder & Senior Partner</div>
+                    <div className="serif" style={{ fontSize: 15, color: C.navy }}>Adv. Mitul Saxena</div>
+                    <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2, color: C.mid, textTransform: "uppercase" }}>Partner · 20+ Years</div>
                   </div>
                 </div>
               </div>
               <div className="about-years-badge" style={{ position: "absolute", bottom: -18, right: -18, background: C.navy, color: "#fff", padding: "17px 22px", borderRadius: 6, boxShadow: "0 10px 32px rgba(15,45,94,.28)", textAlign: "center" }}>
-                <div className="serif" style={{ fontSize: 28 }}>25+</div>
-                <div className="sans" style={{ fontSize: 10, opacity: .8, letterSpacing: 1.5 }}>Years of Practice</div>
+                <div className="serif" style={{ fontSize: 28 }}>15+</div>
+                <div className="sans" style={{ fontSize: 10, opacity: .8, letterSpacing: 1.5 }}>Years (Amit Tatke)</div>
               </div>
             </div>
           </FadeIn>
@@ -127,10 +131,13 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
               <SHeading>A Firm Built on <span style={{ color: C.mid }}>Trust & Results</span></SHeading>
               <hr className="divider" style={{ width: 70, margin: "0 0 24px" }} />
               <p className="sans" style={{ fontSize: 15.5, fontWeight: 300, lineHeight: 1.9, color: C.muted, marginBottom: 18 }}>
-                Founded in 1999, Saxena Law Firm has grown into one of the most respected full-service law firms in Maharashtra, with 15+ experienced advocates and a track record spanning over 2,500 cases.
+                Saxena and Tatke Advocates and Solicitors is a premier multidisciplinary law firm led by Mitul Saxena and Amit Tatke. The firm offers comprehensive legal solutions across civil, criminal, commercial and matrimonial law.
+              </p>
+              <p className="sans" style={{ fontSize: 15.5, fontWeight: 300, lineHeight: 1.9, color: C.muted, marginBottom: 18 }}>
+                Our partners bring a seasoned perspective to the courtroom — Mitul Saxena with 20+ years of litigation mastery and Amit Tatke with 15+ years of strategic legal expertise. We maintain a formidable presence before the High Courts, District Courts, Tribunals and various specialized forums. We are uniquely positioned to handle complex writ jurisdictions and high-stakes commercial disputes with procedural precision and unwavering integrity.
               </p>
               <p className="sans" style={{ fontSize: 15.5, fontWeight: 300, lineHeight: 1.9, color: C.muted, marginBottom: 32 }}>
-                We believe every client deserves personalised, strategic legal representation — from the first consultation to the final judgment.
+                Urgent legal consultation? We offer flexible scheduling, including Sundays and holidays by prior appointment.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 32 }}>
                 {["Client-First Approach", "Transparent Communication", "Strong Courtroom Advocacy", "Proven Track Record"].map(v => (
@@ -142,7 +149,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                   </div>
                 ))}
               </div>
-              <button className="btn-navy" onClick={() => scrollTo("team")}>Meet Our Advocates</button>
+              <button className="btn-navy" onClick={() => scrollTo("founders")}>Meet Our Founders</button>
             </div>
           </FadeIn>
         </div>
@@ -164,11 +171,11 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }} className="g3">
             {FOCUS_AREAS.map((f, i) => (
               <FadeIn key={f.id} delay={i * 0.07}>
-                <div className="focus-card" onClick={() => { setActiveFocus(f); setPage("focus"); window.scrollTo(0, 0); }}>
+                <div className="focus-card" onClick={() => { setActiveFocus(f); setPage("focus"); window.scrollTo(0, 0); }} style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                   <div style={{ width: 50, height: 50, borderRadius: 6, background: C.pale, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, marginBottom: 16 }}>{f.icon}</div>
                   <h3 className="serif" style={{ fontSize: 20, color: C.navy, marginBottom: 8 }}>{f.title}</h3>
                   <hr style={{ border: "none", borderTop: `2px solid ${C.pale}`, marginBottom: 12 }} />
-                  <p className="sans" style={{ fontSize: 13.5, fontWeight: 300, color: C.muted, lineHeight: 1.78, marginBottom: 16 }}>{f.tagline}</p>
+                  <p className="sans" style={{ fontSize: 13.5, fontWeight: 300, color: C.muted, lineHeight: 1.78, marginBottom: 16, minHeight: 72, flex: 1 }}>{f.tagline}</p>
                   <div className="sans" style={{ fontSize: 12.5, fontWeight: 600, color: C.mid, display: "flex", alignItems: "center", gap: 5 }}>Read More →</div>
                 </div>
               </FadeIn>
@@ -191,20 +198,20 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
         </div>
       </section>
 
-      {/* TEAM */}
-      <section id="team" style={{ padding: "108px 5%", background: "#fff" }}>
+      {/* FOUNDERS */}
+      <section id="founders" style={{ padding: "108px 5%", background: "#fff" }}>
         <div style={{ maxWidth: 1300, margin: "0 auto" }}>
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 58 }}>
-              <SLabel>Our People</SLabel>
-              <SHeading>Meet Our <span style={{ color: C.mid }}>Advocates</span></SHeading>
+              <SLabel>Our Founders</SLabel>
+              <SHeading>Meet Our <span style={{ color: C.mid }}>Founders</span></SHeading>
               <hr className="divider" style={{ width: 80, margin: "0 auto 18px" }} />
               <p className="sans" style={{ fontSize: 15.5, fontWeight: 300, color: C.muted, maxWidth: 460, margin: "0 auto" }}>
-                Click on any advocate to read their full profile, specialisation, and notable case highlights.
+                Click on any founder to read their full profile, specialisation, and notable case highlights.
               </p>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 22 }} className="g3">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 22, maxWidth: 700, margin: "0 auto" }}>
             {TEAM.map((m, i) => (
               <FadeIn key={m.id} delay={i * 0.08}>
                 <div className="team-card" onClick={() => { setActiveTeam(m); setPage("attorney"); window.scrollTo(0, 0); }}>
@@ -238,8 +245,8 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           </FadeIn>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="g3">
             {[
-              { n: "Suresh Patel", r: "Business Owner", t: "Saxena Law Firm handled our corporate dispute with exceptional skill. Their strategic approach and clear communication made the entire process smooth. Highly recommended.", img: "https://i.pravatar.cc/60?img=12" },
-              { n: "Meena Gupta", r: "Homeowner", t: "I was dealing with a complex property dispute and felt completely lost. Adv. Saxena's team was professional, empathetic, and resolved everything in my favour.", img: "https://i.pravatar.cc/60?img=48" },
+              { n: "Suresh Patel", r: "Business Owner", t: "Saxena and Tatke handled our commercial dispute with exceptional skill. Their strategic approach and clear communication made the entire process smooth. Highly recommended.", img: "https://i.pravatar.cc/60?img=12" },
+              { n: "Meena Gupta", r: "Homeowner", t: "I was dealing with a complex property dispute and felt completely lost. Adv. Saxena and the team were professional, empathetic, and resolved everything in my favour.", img: "https://i.pravatar.cc/60?img=48" },
               { n: "Rahul Verma", r: "IT Professional", t: "Fast, reliable, and focused on results. They handled my criminal case with total dedication. I am truly grateful to this incredible team for their unwavering support.", img: "https://i.pravatar.cc/60?img=14" },
             ].map((t, i) => (
               <FadeIn key={t.n} delay={i * .12}>
@@ -320,12 +327,19 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.7fr", gap: 30 }} className="g2">
             <FadeIn dir="left">
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                {[["📍", "Office Address", "14, Legal Complex, Court Road\nNashik, Maharashtra 422001"], ["📞", "Phone", "+91 98765 43210\n+91 253 234 5678"], ["✉️", "Email", "contact@saxenalawfirm.com"], ["🕐", "Hours", "Mon – Sat: 10:00 AM – 7:00 PM\n24/7 Emergency Support"]].map(([ic, lb, vl]) => (
+                {[["📍", "Main Office", "70-A Brajeshwari Extension, Piplihana\nIndore (M.P.) 452016"], ["📍", "City Office", "412 Manas Bhawan Extension, 11 RNT Marg\nIndore (M.P.) 452001"], ["📞", "Phone", "Mitul Saxena: +91 98262 35300\nAmit Tatke: +91 90093 30202", true], ["🕐", "Hours", "Mon – Sat: 10:00 AM – 7:00 PM\nSundays & holidays by prior appointment"]].map(([ic, lb, vl, isPhone]) => (
                   <div key={lb} style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 6, padding: "18px 20px", display: "flex", gap: 13, alignItems: "flex-start", borderLeft: `4px solid ${C.mid}` }}>
                     <span style={{ fontSize: 20 }}>{ic}</span>
-                    <div>
+                    <div style={{ flex: 1 }}>
                       <div className="sans" style={{ fontSize: 10, letterSpacing: 2, color: C.mid, textTransform: "uppercase", marginBottom: 4 }}>{lb}</div>
-                      <div className="sans" style={{ fontSize: 14, color: "#2a3a5e", lineHeight: 1.7, whiteSpace: "pre-line" }}>{vl}</div>
+                      {isPhone ? (
+                        <div className="sans" style={{ fontSize: 14, color: "#2a3a5e", lineHeight: 1.7, whiteSpace: "pre-line" }}>
+                          <a href="tel:+919826235300" style={{ color: "inherit", textDecoration: "none" }}>+91 98262 35300</a> (Mitul)<br />
+                          <a href="tel:+919009330202" style={{ color: "inherit", textDecoration: "none" }}>+91 90093 30202</a> (Amit)
+                        </div>
+                      ) : (
+                        <div className="sans" style={{ fontSize: 14, color: "#2a3a5e", lineHeight: 1.7, whiteSpace: "pre-line" }}>{vl}</div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -356,7 +370,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                   <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>Describe Your Case</label>
                   <textarea rows={4} placeholder="Briefly describe your legal situation..." style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff", resize: "vertical" }} />
                 </div>
-                <button className="btn-navy" style={{ width: "100%", padding: "14px" }}>Submit & Book Consultation →</button>
+                <button type="button" className="btn-navy" style={{ width: "100%", padding: "14px" }} onClick={(e) => { e.preventDefault(); alert("Thank you for your inquiry. We will contact you within 2 business hours."); }}>Submit & Book Consultation →</button>
                 <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 12 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
               </div>
             </FadeIn>
@@ -369,30 +383,40 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
         <div style={{ maxWidth: 1300, margin: "0 auto", padding: "50px 5% 24px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 38 }} className="g4">
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 15 }}>
-                <div style={{ width: 40, height: 40, background: "#fff", borderRadius: 3, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Serif Display',serif", fontSize: 20, color: C.navy }}>S</div>
-                <div>
-                  <div className="serif" style={{ fontSize: 18, color: "#fff", letterSpacing: 1 }}>SAXENA</div>
-                  <div className="sans" style={{ fontSize: 8.5, color: "#7EC8E3", letterSpacing: 4 }}>LAW FIRM</div>
-                </div>
+              <div style={{ display: "flex", alignItems: "center", marginBottom: 15 }}>
+                <img src="/logo.png" alt="Saxena & Tatke Advocates and Solicitors" style={{ height: 88, width: "auto", objectFit: "contain" }} />
               </div>
-              <p className="sans" style={{ fontSize: 13, color: "rgba(255,255,255,.42)", lineHeight: 1.8, maxWidth: 270, marginBottom: 16 }}>Dedicated to delivering justice with integrity since 1999. Your trusted legal partner across Maharashtra.</p>
-              <div className="sans" style={{ fontSize: 11, color: "rgba(255,255,255,.28)", fontStyle: "italic" }}>"Audi Alteram Partem"</div>
+              <p className="sans" style={{ fontSize: 13, color: "rgba(255,255,255,.42)", lineHeight: 1.8, maxWidth: 270 }}>Premier multidisciplinary law firm in Indore. Decades of experience across civil, criminal, commercial and matrimonial law.</p>
             </div>
-            {[["Quick Links", ["Home", "About", "Focus Areas", "Team", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["+91 98765 43210", "contact@saxenalawfirm.com", "Court Road, Nashik", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
+            {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["+91 98262 35300 / +91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
               <div key={title}>
                 <div className="sans" style={{ fontSize: 10, letterSpacing: 3, color: "#7EC8E3", textTransform: "uppercase", marginBottom: 14, fontWeight: 600 }}>{title}</div>
                 <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.12)", marginBottom: 14, width: 28 }} />
-                {items.map(it => (
-                  <div key={it} className="sans" style={{ fontSize: 12.5, color: "rgba(255,255,255,.38)", marginBottom: 8, cursor: "pointer", transition: "color .2s" }}
-                    onMouseEnter={e => e.target.style.color = "rgba(255,255,255,.8)"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,.38)"}>{it}</div>
-                ))}
+                {items.map(it => {
+                  const handleQuickLink = () => {
+                    if (it === "Blog") { setPage("blog"); window.scrollTo(0, 0); }
+                    else { setPage("home"); setTimeout(() => scrollTo(it.toLowerCase().replace(/ /g, "-")), 80); }
+                  };
+                  const handlePracticeArea = () => {
+                    const focus = FOCUS_AREAS.find(f => f.title === it);
+                    if (focus) { setActiveFocus(focus); setPage("focus"); window.scrollTo(0, 0); }
+                  };
+                  const isClickable = title === "Quick Links" || title === "Practice Areas";
+                  const handleClick = title === "Quick Links" ? handleQuickLink : title === "Practice Areas" ? handlePracticeArea : undefined;
+                  return (
+                    <div key={it} className="sans" style={{ fontSize: 12.5, color: "rgba(255,255,255,.38)", marginBottom: 8, cursor: isClickable ? "pointer" : "default", transition: "color .2s" }}
+                      onMouseEnter={e => { if (isClickable) e.target.style.color = "rgba(255,255,255,.8)"; }}
+                      onMouseLeave={e => { if (isClickable) e.target.style.color = "rgba(255,255,255,.38)"; }}
+                      onClick={handleClick}
+                      role={isClickable ? "button" : undefined}>{it}</div>
+                  );
+                })}
               </div>
             ))}
           </div>
           <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.08)", marginBottom: 20 }} />
           <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 10 }}>
-            <div className="sans" style={{ fontSize: 11.5, color: "rgba(255,255,255,.25)" }}>© 2025 Saxena Law Firm. All Rights Reserved.</div>
+            <div className="sans" style={{ fontSize: 11.5, color: "rgba(255,255,255,.25)" }}>© 2026 Saxena and Tatke Advocates and Solicitors. All Rights Reserved.</div>
             <div className="sans" style={{ fontSize: 11.5, color: "rgba(255,255,255,.25)" }}>Privacy Policy · Terms · Disclaimer</div>
           </div>
         </div>

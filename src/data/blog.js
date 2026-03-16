@@ -7,7 +7,7 @@ export const BLOG_POSTS = [
     date: "12 February 2025",
     readTime: "7 min read",
     img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80",
-    author: "Adv. Rajesh Saxena",
+    author: "Adv. Mitul Saxena",
     authorImg: "https://i.pravatar.cc/80?img=11",
     content: [
       { heading: "Your Rights Begin the Moment of Arrest", body: "Under Article 22 of the Constitution of India, every arrested person has the right to be informed of the grounds of arrest, the right to consult a lawyer of their choice, and the right to be produced before a magistrate within 24 hours. These rights cannot be waived by the police." },
@@ -25,7 +25,7 @@ export const BLOG_POSTS = [
     date: "28 January 2025",
     readTime: "9 min read",
     img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80",
-    author: "Adv. Arjun Mehta",
+    author: "Adv. Mitul Saxena",
     authorImg: "https://i.pravatar.cc/80?img=13",
     content: [
       { heading: "The RERA Promise and the Ground Reality", body: "The Real Estate (Regulation and Development) Act, 2016 was a landmark law designed to protect homebuyers from the endemic delays, broken promises, and fund diversions that had plagued Indian real estate for decades. In Maharashtra, MahaRERA has been one of the most active RERA authorities in the country — but enforcement remains uneven." },
@@ -43,7 +43,7 @@ export const BLOG_POSTS = [
     date: "15 January 2025",
     readTime: "8 min read",
     img: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=600&q=80",
-    author: "Adv. Kavita Sharma",
+    author: "Adv. Mitul Saxena",
     authorImg: "https://i.pravatar.cc/80?img=44",
     content: [
       { heading: "The Paramount Principle: Welfare of the Child", body: "In all custody decisions, Indian courts are guided by a single overriding principle: the welfare and best interests of the child. This is not merely a guideline — it is a constitutional imperative grounded in Article 21 and reflected in the Guardians and Wards Act, 1890, the Hindu Minority and Guardianship Act, 1956, and personal law statutes." },
@@ -61,7 +61,7 @@ export const BLOG_POSTS = [
     date: "5 January 2025",
     readTime: "6 min read",
     img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80",
-    author: "Adv. Priya Saxena",
+    author: "Adv. Amit Tatke",
     authorImg: "https://i.pravatar.cc/80?img=47",
     content: [
       { heading: "The Most Common Startup Legal Mistake", body: "In our experience advising early-stage companies, the single most common — and most expensive — mistake founders make is starting a business together without a written agreement. Equity splits decided over coffee, vesting schedules that exist only in someone's memory, and exit provisions that were never discussed: these are the seeds of disputes that later tear companies apart." },
@@ -78,7 +78,7 @@ export const BLOG_POSTS = [
     date: "20 December 2024",
     readTime: "7 min read",
     img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
-    author: "Adv. Sunil Patil",
+    author: "Adv. Amit Tatke",
     authorImg: "https://i.pravatar.cc/80?img=15",
     content: [
       { heading: "What Makes a Termination 'Wrongful' Under Indian Law?", body: "Indian labour law provides significant protections against arbitrary dismissal, particularly for workers in the 'organised sector' covered by the Industrial Disputes Act, 1947. A termination is generally unlawful if it is done without following proper procedure, without valid cause, in violation of standing orders, in retaliation for union activity or protected speech, or without payment of legal dues including notice pay, gratuity, and retrenchment compensation." },
@@ -95,7 +95,7 @@ export const BLOG_POSTS = [
     date: "8 December 2024",
     readTime: "6 min read",
     img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
-    author: "Adv. Meera Joshi",
+    author: "Adv. Amit Tatke",
     authorImg: "https://i.pravatar.cc/80?img=45",
     content: [
       { heading: "The Consumer Protection Act 2019: A Stronger Framework", body: "The Consumer Protection Act, 2019 significantly strengthened the framework for consumer redressal in India. It introduced product liability claims against manufacturers and sellers, enhanced the jurisdiction of consumer forums, allowed e-complaints, and enabled class action complaints where a defect or deficiency affects multiple consumers." },

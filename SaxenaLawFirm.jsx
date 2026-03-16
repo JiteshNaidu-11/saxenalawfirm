@@ -667,7 +667,7 @@ const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => 
                   </div>
                 ))}
               </div>
-              <button className="btn-navy" onClick={() => scrollTo("team")}>Meet Our Advocates</button>
+              <button className="btn-navy" onClick={() => scrollTo("team")}>Meet Our Founders</button>
             </div>
           </FadeIn>
         </div>
@@ -721,11 +721,11 @@ const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => 
         <div style={{ maxWidth: 1300, margin: "0 auto" }}>
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 58 }}>
-              <SLabel>Our People</SLabel>
-              <SHeading>Meet Our <span style={{ color: C.mid }}>Advocates</span></SHeading>
+              <SLabel>Our Founders</SLabel>
+              <SHeading>Meet Our <span style={{ color: C.mid }}>Founders</span></SHeading>
               <hr className="divider" style={{ width: 80, margin: "0 auto 18px" }} />
               <p className="sans" style={{ fontSize: 15.5, fontWeight: 300, color: C.muted, maxWidth: 460, margin: "0 auto" }}>
-                Click on any advocate to read their full profile, specialisation, and notable case highlights.
+                Click on any founder to read their full profile, specialisation, and notable case highlights.
               </p>
             </div>
           </FadeIn>

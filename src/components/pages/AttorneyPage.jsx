@@ -6,8 +6,8 @@ export const AttorneyPage = ({ attorney, setPage }) => (
     <div style={{ background: `linear-gradient(145deg,${C.navy},${C.blue})`, padding: "64px 5% 56px", position: "relative", overflow: "hidden" }}>
       <div className="dot-bg-w" style={{ position: "absolute", inset: 0, opacity: .35 }} />
       <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
-        <button className="back-btn" onClick={() => { setPage("home"); setTimeout(() => document.getElementById("team")?.scrollIntoView({ behavior: "smooth" }), 80); }} style={{ color: "rgba(255,255,255,.7)", marginBottom: 28 }}>
-          ← Back to Team
+        <button className="back-btn" onClick={() => { setPage("home"); setTimeout(() => document.getElementById("founders")?.scrollIntoView({ behavior: "smooth" }), 80); }} style={{ color: "rgba(255,255,255,.7)", marginBottom: 28 }}>
+          ← Back to Founders
         </button>
         <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 36, alignItems: "center" }} className="g2">
           <img src={attorney.img} alt={attorney.name} style={{ width: 140, height: 140, borderRadius: "50%", objectFit: "cover", border: "4px solid rgba(255,255,255,.25)", flexShrink: 0 }} />
@@ -64,6 +64,7 @@ export const AttorneyPage = ({ attorney, setPage }) => (
           <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2.5, color: C.mid, textTransform: "uppercase", marginBottom: 14 }}>Education</div>
           <p className="sans" style={{ fontSize: 14, color: "#3a4a6a", lineHeight: 1.75 }}>{attorney.edu.split("|").map((e, i) => <span key={i} style={{ display: "block", marginBottom: 4 }}>{e.trim()}</span>)}</p>
         </div>
+        {/* Awards & Recognition - commented out
         <div style={{ background: "#F2F7FF", border: `1px solid ${C.border}`, borderRadius: 8, padding: "24px" }}>
           <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2.5, color: C.mid, textTransform: "uppercase", marginBottom: 14 }}>Awards & Recognition</div>
           {attorney.awards.map((a, i) => (
@@ -73,6 +74,7 @@ export const AttorneyPage = ({ attorney, setPage }) => (
             </div>
           ))}
         </div>
+        */}
         <div style={{ background: C.navy, borderRadius: 8, padding: "24px" }}>
           <div className="sans" style={{ fontSize: 11, letterSpacing: 2, color: "rgba(255,255,255,.55)", textTransform: "uppercase", marginBottom: 10 }}>Book a Consultation</div>
           <p className="sans" style={{ fontSize: 13.5, color: "rgba(255,255,255,.65)", lineHeight: 1.7, marginBottom: 18 }}>Speak directly with {attorney.name.split(" ")[1]} about your legal matter.</p>

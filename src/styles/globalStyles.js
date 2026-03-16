@@ -117,4 +117,7 @@ export const GLOBAL_CSS = `
     .g4{grid-template-columns:1fr!important}
     .g-stat{grid-template-columns:1fr 1fr!important}
   }
+  @media(max-width:400px){
+    nav img[alt*="Saxena"] { max-width: 200px !important; height: 48px !important; }
+  }
 `;
