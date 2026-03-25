@@ -41,7 +41,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
             </p>
 
             <div className="h-a4" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <button className="btn-white" onClick={() => scrollTo("contact")}>Book Free Consultation</button>
+              <button className="btn-white" onClick={() => scrollTo("contact")}>Book Consultation</button>
               <button className="btn-ghost-w" onClick={() => scrollTo("focus-areas")}>Our Practice Areas</button>
             </div>
 
@@ -60,7 +60,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
             <div style={{ background: "rgba(255,255,255,.97)", borderRadius: 10, padding: "26px 28px", boxShadow: "0 24px 64px rgba(10,20,60,.3)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
                 <span style={{ fontSize: 28, color: "#2E6DD4" }}>{"\u2696"}</span>
-                <div><div className="serif" style={{ fontSize: 17, color: C.navy }}>Free Legal Consultation</div>
+                <div><div className="serif" style={{ fontSize: 17, color: C.navy }}>Legal Consultation</div>
                   <div className="sans" style={{ fontSize: 12, color: C.muted }}>Speak with a senior advocate today</div></div>
               </div>
               <hr style={{ border: "none", borderTop: `1px solid ${C.border}`, marginBottom: 14 }} />
@@ -76,21 +76,33 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
               </div>
               <button className="btn-navy" style={{ width: "100%", marginTop: 14 }} onClick={() => scrollTo("contact")}>Get Started →</button>
             </div>
-            <a href="tel:+919826235300" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
+            <a href="tel:+919826235300" className="contact-call-card" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98262 35300</div>
-                <div className="sans" style={{ fontSize: 10, color: "rgba(255,255,255,.6)" }}>Mitul Saxena · Amit +91 90093 30202</div></div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Mitul Saxena</div>
+                <span className="contact-phone-reveal serif" style={{ display: "block", fontSize: 19, color: "#fff" }}>+91 98262 35300</span></div>
+            </a>
+            <a href="tel:+919009330202" className="contact-call-card" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
+              <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
+              <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Amit Tatke</div>
+                <span className="contact-phone-reveal serif" style={{ display: "block", fontSize: 19, color: "#fff" }}>+91 90093 30202</span></div>
             </a>
           </div>
 
-          {/* Mobile Phone Button */}
-          <div className="show-mob" style={{ display: "none" }}>
+          {/* Mobile Phone Buttons */}
+          <div className="show-mob" style={{ display: "none", flexDirection: "column", gap: 14 }}>
             <a href="tel:+919826235300" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98262 35300</div>
-                <div className="sans" style={{ fontSize: 10, color: "rgba(255,255,255,.6)" }}>Amit +91 90093 30202</div></div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Mitul Saxena</div>
+                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98262 35300</div></div>
+            </a>
+            <a href="tel:+919009330202" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
+              <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
+              <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Amit Tatke</div>
+                <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 90093 30202</div></div>
             </a>
           </div>
         </div>
@@ -111,11 +123,21 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                 <p className="sans" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.82, color: "#2a3a5e", marginBottom: 28 }}>
                   We are uniquely positioned to handle complex writ jurisdictions and high-stakes commercial disputes with procedural precision and unwavering integrity.
                 </p>
-                <div style={{ display: "flex", alignItems: "center", gap: 13 }}>
-                  <img src="https://i.pravatar.cc/80?img=11" alt="MS" style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
-                  <div>
-                    <div className="serif" style={{ fontSize: 15, color: C.navy }}>Adv. Mitul Saxena</div>
-                    <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2, color: C.mid, textTransform: "uppercase" }}>Partner · 20+ Years</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 13 }}>
+                    <img src="/Saxena.jpeg" alt="Mitul Saxena" style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
+                    <div>
+                      <div className="serif" style={{ fontSize: 15, color: C.navy }}>Adv. Mitul Saxena</div>
+                      <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2, color: C.mid, textTransform: "uppercase" }}>Partner · 15+ Years</div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: "flex", alignItems: "center", gap: 13 }}>
+                    <img src="/Amit.jpeg" alt="Saxena" style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
+                    <div>
+                      <div className="serif" style={{ fontSize: 15, color: C.navy }}>Adv. Amit Tatke</div>
+                      <div className="sans" style={{ fontSize: 10.5, letterSpacing: 2, color: C.mid, textTransform: "uppercase" }}>Founder · 15+ Years</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -203,20 +225,25 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
         <div style={{ maxWidth: 1300, margin: "0 auto" }}>
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 58 }}>
-              <SLabel>Our Founders</SLabel>
-              <SHeading>Meet Our <span style={{ color: C.mid }}>Founders</span></SHeading>
+              <SLabel>Our Team</SLabel>
+              <SHeading>Meet Our <span style={{ color: C.mid }}>Attorneys</span></SHeading>
               <hr className="divider" style={{ width: 80, margin: "0 auto 18px" }} />
               <p className="sans" style={{ fontSize: 15.5, fontWeight: 300, color: C.muted, maxWidth: 460, margin: "0 auto" }}>
-                Click on any founder to read their full profile, specialisation, and notable case highlights.
+                Click on any attorney to read their full profile, specialisation, and key case & advisory highlights.
               </p>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 22, maxWidth: 700, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 22, maxWidth: 1100, margin: "0 auto" }}>
             {TEAM.map((m, i) => (
               <FadeIn key={m.id} delay={i * 0.08}>
                 <div className="team-card" onClick={() => { setActiveTeam(m); setPage("attorney"); window.scrollTo(0, 0); }}>
                   <div style={{ position: "relative", overflow: "hidden" }}>
-                    <img className="team-img" src={m.img} alt={m.name} />
+                    <img
+                      className="team-img"
+                      src={m.img}
+                      alt={m.name}
+                      onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/Black@2x-8.png"; }}
+                    />
                     <div className="team-overlay">
                       <div className="sans" style={{ color: "#fff", fontSize: 13, fontWeight: 500 }}>Click to read full profile →</div>
                     </div>
@@ -319,23 +346,23 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 58 }}>
               <SLabel>Get In Touch</SLabel>
-              <SHeading>Book a <span style={{ color: C.mid }}>Free Consultation</span></SHeading>
+              <SHeading>Book a <span style={{ color: C.mid }}>Consultation</span></SHeading>
               <hr className="divider" style={{ width: 80, margin: "0 auto 18px" }} />
-              <p className="sans" style={{ fontSize: 15.5, color: C.muted, maxWidth: 440, margin: "0 auto" }}>Your first consultation is completely free. Speak with our senior advocates today.</p>
+              <p className="sans" style={{ fontSize: 15.5, color: C.muted, maxWidth: 440, margin: "0 auto" }}>Speak with our senior advocates today.</p>
             </div>
           </FadeIn>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.7fr", gap: 30 }} className="g2">
             <FadeIn dir="left">
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                {[["📍", "Main Office", "70-A Brajeshwari Extension, Piplihana\nIndore (M.P.) 452016"], ["📍", "City Office", "412 Manas Bhawan Extension, 11 RNT Marg\nIndore (M.P.) 452001"], ["📞", "Phone", "Mitul Saxena: +91 98262 35300\nAmit Tatke: +91 90093 30202", true], ["🕐", "Hours", "Mon – Sat: 10:00 AM – 7:00 PM\nSundays & holidays by prior appointment"]].map(([ic, lb, vl, isPhone]) => (
+                {[["📍", "Main Office", "70-A Brajeshwari Extension, Piplihana\nIndore (M.P.) 452016"], ["📍", "City Office", "412 Manas Bhawan Extension, 11 RNT Marg\nIndore (M.P.) 452001"], ["📞", "Phone", "Mitul Saxena Advocate: +91 98262 35300\nAmit Tatke Advocate: +91 90093 30202", true], ["🕐", "Hours", "Mon – Sat: 10:00 AM – 7:00 PM\nSundays & holidays by prior appointment"]].map(([ic, lb, vl, isPhone]) => (
                   <div key={lb} style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 6, padding: "18px 20px", display: "flex", gap: 13, alignItems: "flex-start", borderLeft: `4px solid ${C.mid}` }}>
                     <span style={{ fontSize: 20 }}>{ic}</span>
                     <div style={{ flex: 1 }}>
                       <div className="sans" style={{ fontSize: 10, letterSpacing: 2, color: C.mid, textTransform: "uppercase", marginBottom: 4 }}>{lb}</div>
                       {isPhone ? (
                         <div className="sans" style={{ fontSize: 14, color: "#2a3a5e", lineHeight: 1.7, whiteSpace: "pre-line" }}>
-                          <a href="tel:+919826235300" style={{ color: "inherit", textDecoration: "none" }}>+91 98262 35300</a> (Mitul)<br />
-                          <a href="tel:+919009330202" style={{ color: "inherit", textDecoration: "none" }}>+91 90093 30202</a> (Amit)
+                          <a href="tel:+919826235300" style={{ color: "inherit", textDecoration: "none" }}>+91 98262 35300</a> (Mitul Saxena Advocate)<br />
+                          <a href="tel:+919009330202" style={{ color: "inherit", textDecoration: "none" }}>+91 90093 30202</a> (Amit Tatke Advocate)
                         </div>
                       ) : (
                         <div className="sans" style={{ fontSize: 14, color: "#2a3a5e", lineHeight: 1.7, whiteSpace: "pre-line" }}>{vl}</div>
@@ -362,14 +389,17 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                     {p ? <input placeholder={p} style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }} />
                       : <select style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#3a4a6a", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }}>
                         <option value="">Select area</option>
+                        <option value="Other">Other</option>
                         {FOCUS_AREAS.map(f => <option key={f.id}>{f.title}</option>)}
                       </select>}
                   </div>
                 ))}
+                {/* Describe Your Case - commented out
                 <div style={{ marginBottom: 24 }}>
                   <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>Describe Your Case</label>
                   <textarea rows={4} placeholder="Briefly describe your legal situation..." style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff", resize: "vertical" }} />
                 </div>
+                */}
                 <button type="button" className="btn-navy" style={{ width: "100%", padding: "14px" }} onClick={(e) => { e.preventDefault(); alert("Thank you for your inquiry. We will contact you within 2 business hours."); }}>Submit & Book Consultation →</button>
                 <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 12 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
               </div>
@@ -384,11 +414,11 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 38 }} className="g4">
             <div>
               <div style={{ display: "flex", alignItems: "center", marginBottom: 15 }}>
-                <img src="/logo.png" alt="Saxena & Tatke Advocates and Solicitors" style={{ height: 88, width: "auto", objectFit: "contain" }} />
+                <img src="/Black@2x-8.png" alt="Saxena & Tatke Advocates and Solicitors" style={{ height: 88, width: "auto", objectFit: "contain" }} />
               </div>
               <p className="sans" style={{ fontSize: 13, color: "rgba(255,255,255,.42)", lineHeight: 1.8, maxWidth: 270 }}>Premier multidisciplinary law firm in Indore. Decades of experience across civil, criminal, commercial and matrimonial law.</p>
             </div>
-            {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["+91 98262 35300 / +91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
+            {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["Mitul Saxena Advocate +91 98262 35300", "Amit Tatke Advocate +91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
               <div key={title}>
                 <div className="sans" style={{ fontSize: 10, letterSpacing: 3, color: "#7EC8E3", textTransform: "uppercase", marginBottom: 14, fontWeight: 600 }}>{title}</div>
                 <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.12)", marginBottom: 14, width: 28 }} />

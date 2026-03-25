@@ -56,7 +56,7 @@ npm run dev      # Start development server
 npm run build    # Build for production
 ```
 
-The app runs on `http://localhost:3000/`
+The app runs on `http://127.0.0.1:5173/`
 
 ## 📄 Components Overview
 

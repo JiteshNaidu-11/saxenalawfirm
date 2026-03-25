@@ -36,10 +36,10 @@ export const FocusPage = ({ focus, setPage }) => (
         <div className="dot-bg-w" style={{ position: "absolute", inset: 0, opacity: .3 }} />
         <div style={{ position: "relative" }}>
           <div className="serif" style={{ fontSize: 26, color: "#fff", marginBottom: 6 }}>Need advice on {focus.title}?</div>
-          <div className="sans" style={{ fontSize: 14, color: "rgba(255,255,255,.62)" }}>Our specialists are available for a free initial consultation.</div>
+          <div className="sans" style={{ fontSize: 14, color: "rgba(255,255,255,.62)" }}>Our specialists are available for an initial consultation.</div>
         </div>
         <button className="btn-white" style={{ position: "relative" }} onClick={() => { setPage("home"); setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 80); }}>
-          Book Free Consultation
+          Book Consultation
         </button>
       </div>
     </div>

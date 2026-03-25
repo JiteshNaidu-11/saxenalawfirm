@@ -7,10 +7,14 @@ export const Navbar = ({ page, setPage, scrolled, mobileOpen, setMobileOpen }) =
 
   return (
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: scrolled || !isHome ? "rgba(255,255,255,0.97)" : "transparent", backdropFilter: scrolled || !isHome ? "blur(16px)" : "none", boxShadow: scrolled || !isHome ? "0 2px 20px rgba(15,45,94,.09)" : "none", borderBottom: scrolled || !isHome ? `1px solid ${C.border}` : "none", transition: "all .3s", padding: "0 5%" }}>
-      <div style={{ maxWidth: 1300, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+      <div style={{ maxWidth: 1300, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 84 }}>
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => setPage("home")}>
-          <img src="/logo.png" alt="Saxena & Tatke Advocates and Solicitors" style={{ height: 100,maxWidth: 280, width: "auto", objectFit: "contain" }} />
+          <img
+            className="navbar-logo"
+            src="/Black@2x-8.png"
+            alt="Saxena & Tatke Advocates and Solicitors"
+          />
         </div>
 
         {/* Desktop */}
@@ -21,7 +25,7 @@ export const Navbar = ({ page, setPage, scrolled, mobileOpen, setMobileOpen }) =
               {l}
             </button>
           ))}
-          <button className="btn-navy" style={{ fontSize: 11.5, padding: "9px 20px" }} onClick={() => { setPage("home"); setTimeout(() => { document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }, 80); }}>Free Consultation</button>
+          <button className="btn-navy" style={{ fontSize: 11.5, padding: "9px 20px" }} onClick={() => { setPage("home"); setTimeout(() => { document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }, 80); }}>Consultation</button>
         </div>
 
         {/* Mobile ham */}
@@ -37,7 +41,7 @@ export const Navbar = ({ page, setPage, scrolled, mobileOpen, setMobileOpen }) =
               {l}
             </button>
           ))}
-          <button className="btn-navy" style={{ width: "100%", marginTop: 12, padding: "12px" }} onClick={() => { setMobileOpen(false); setPage("home"); setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 80); }}>Free Consultation</button>
+          <button className="btn-navy" style={{ width: "100%", marginTop: 12, padding: "12px" }} onClick={() => { setMobileOpen(false); setPage("home"); setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 80); }}>Consultation</button>
         </div>
       )}
     </nav>

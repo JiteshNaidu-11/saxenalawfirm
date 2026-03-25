@@ -27,8 +27,9 @@ export const GLOBAL_CSS = `
   /* Team card */
   .team-card { overflow:hidden; border-radius:8px; border:1px solid #D4E3F7; background:#fff; transition:all .32s; cursor:pointer; }
   .team-card:hover { transform:translateY(-6px); box-shadow:0 16px 52px rgba(15,45,94,.15); border-color:#97BEF0; }
-  .team-card:hover .team-img { transform:scale(1.05); }
-  .team-img { width:100%; height:260px; object-fit:cover; object-position:top; transition:transform .5s ease; display:block; }
+  /* Use object-fit: contain to avoid cropping faces/heads in portrait images. */
+  .team-card:hover .team-img { transform:scale(1.02); }
+  .team-img { width:100%; height:260px; object-fit:contain; object-position:center; transition:transform .5s ease; display:block; background:#F4F8FF; }
   .team-overlay { background:linear-gradient(to top,rgba(15,45,94,.92) 0%,transparent 60%); position:absolute; inset:0; opacity:0; transition:opacity .32s; display:flex; align-items:flex-end; padding:20px; }
   .team-card:hover .team-overlay { opacity:1; }
 
@@ -55,6 +56,22 @@ export const GLOBAL_CSS = `
   .nav-link-light:hover { color:#fff; }
   .nav-link-light::after { background:#fff; }
   .nav-link-light:hover::after { width:100%; }
+
+  /* Navbar logo sizing */
+  .navbar-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    padding: 4px 0;
+    margin-left: 20px;
+  }
+  @media(max-width:900px){
+    .navbar-logo { height: 40px; }
+  }
 
   /* Page transition */
   .page-enter { animation: pageIn .45s cubic-bezier(.4,0,.2,1) both; }
@@ -102,6 +119,13 @@ export const GLOBAL_CSS = `
   /* Stat number */
   @keyframes countUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
+  /* Contact call card – phone number reveals on hover */
+  .contact-call-card { transition: background .35s ease, border-color .35s ease, transform .35s ease; }
+  .contact-call-card:hover { background: rgba(255,255,255,.16) !important; border-color: rgba(255,255,255,.28) !important; transform: translateY(-2px); }
+  .contact-call-card .contact-phone-reveal { opacity: 0; transform: translateY(-4px); transition: opacity .45s cubic-bezier(.25,.46,.45,.94), transform .45s cubic-bezier(.25,.46,.45,.94); }
+  .contact-call-card:hover .contact-phone-reveal { opacity: 1; transform: translateY(0); }
+  @media(max-width:900px){ .contact-call-card .contact-phone-reveal { opacity: 1; transform: none; } }
+
   @media(max-width:900px){
     .hide-mob{display:none!important}
     .show-mob{display:flex!important}
@@ -118,6 +142,6 @@ export const GLOBAL_CSS = `
     .g-stat{grid-template-columns:1fr 1fr!important}
   }
   @media(max-width:400px){
-    nav img[alt*="Saxena"] { max-width: 200px !important; height: 48px !important; }
+    .navbar-logo { max-width: 200px !important; height: 40px !important; }
   }
 `;

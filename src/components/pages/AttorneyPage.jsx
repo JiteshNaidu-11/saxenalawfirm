@@ -7,17 +7,28 @@ export const AttorneyPage = ({ attorney, setPage }) => (
       <div className="dot-bg-w" style={{ position: "absolute", inset: 0, opacity: .35 }} />
       <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
         <button className="back-btn" onClick={() => { setPage("home"); setTimeout(() => document.getElementById("founders")?.scrollIntoView({ behavior: "smooth" }), 80); }} style={{ color: "rgba(255,255,255,.7)", marginBottom: 28 }}>
-          ← Back to Founders
+          ← Back to Team
         </button>
         <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 36, alignItems: "center" }} className="g2">
-          <img src={attorney.img} alt={attorney.name} style={{ width: 140, height: 140, borderRadius: "50%", objectFit: "cover", border: "4px solid rgba(255,255,255,.25)", flexShrink: 0 }} />
+          <img
+            src={attorney.img}
+            alt={attorney.name}
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/Black@2x-8.png"; }}
+            style={{ width: 140, height: 140, borderRadius: "50%", objectFit: "cover", border: "4px solid rgba(255,255,255,.25)", flexShrink: 0 }}
+          />
           <div>
             <div className="sans" style={{ fontSize: 11, letterSpacing: 3, color: "rgba(255,255,255,.55)", textTransform: "uppercase", marginBottom: 8 }}>{attorney.role}</div>
             <h1 className="serif" style={{ fontSize: "clamp(28px,4vw,46px)", color: "#fff", marginBottom: 10 }}>{attorney.name}</h1>
             <div className="sans" style={{ fontSize: 14, color: "rgba(255,255,255,.65)", marginBottom: 14 }}>{attorney.spec}</div>
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <span style={{ background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 100, padding: "4px 14px" }} className="sans">
-                <span style={{ fontSize: 11, letterSpacing: 1.5, color: "rgba(255,255,255,.75)", textTransform: "uppercase" }}>{attorney.exp} Experience</span>
+                <span style={{ fontSize: 11, letterSpacing: 1.5, color: "rgba(255,255,255,.75)", textTransform: "uppercase" }}>
+                  {(() => {
+                    const exp = attorney.exp ?? "";
+                    const isNumeric = /\d/.test(String(exp));
+                    return isNumeric ? `${exp} Experience` : exp;
+                  })()}
+                </span>
               </span>
               <span style={{ background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 100, padding: "4px 14px" }} className="sans">
                 <span style={{ fontSize: 11, letterSpacing: 1.5, color: "rgba(255,255,255,.75)", textTransform: "uppercase" }}>{attorney.bar}</span>
@@ -78,7 +89,7 @@ export const AttorneyPage = ({ attorney, setPage }) => (
         <div style={{ background: C.navy, borderRadius: 8, padding: "24px" }}>
           <div className="sans" style={{ fontSize: 11, letterSpacing: 2, color: "rgba(255,255,255,.55)", textTransform: "uppercase", marginBottom: 10 }}>Book a Consultation</div>
           <p className="sans" style={{ fontSize: 13.5, color: "rgba(255,255,255,.65)", lineHeight: 1.7, marginBottom: 18 }}>Speak directly with {attorney.name.split(" ")[1]} about your legal matter.</p>
-          <button className="btn-white" style={{ width: "100%" }} onClick={() => { setPage("home"); setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 80); }}>Book Free Consultation</button>
+          <button className="btn-white" style={{ width: "100%" }} onClick={() => { setPage("home"); setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 80); }}>Book Consultation</button>
         </div>
       </div>
     </div>
