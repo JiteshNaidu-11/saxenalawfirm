@@ -79,13 +79,13 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
             <a href="tel:+919826235300" className="contact-call-card" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Mitul Saxena</div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Mitul Saxena Advocate</div>
                 <span className="contact-phone-reveal serif" style={{ display: "block", fontSize: 19, color: "#fff" }}>+91 98262 35300</span></div>
             </a>
             <a href="tel:+919009330202" className="contact-call-card" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Amit Tatke</div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Amit Tatke Advocate</div>
                 <span className="contact-phone-reveal serif" style={{ display: "block", fontSize: 19, color: "#fff" }}>+91 90093 30202</span></div>
             </a>
           </div>
@@ -95,13 +95,13 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
             <a href="tel:+919826235300" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Mitul Saxena</div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Mitul Saxena Advocate</div>
                 <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 98262 35300</div></div>
             </a>
             <a href="tel:+919009330202" style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 10, padding: "15px 20px", display: "flex", alignItems: "center", gap: 13, textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 24, color: "#FF4DA2" }}>{"\u260E"}</span>
               <div><div className="sans" style={{ fontSize: 10, letterSpacing: 2.5, color: "rgba(255,255,255,.5)", textTransform: "uppercase" }}>Call Now</div>
-                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Amit Tatke</div>
+                <div className="serif" style={{ fontSize: 16, color: "#fff" }}>Amit Tatke Advocate</div>
                 <div className="serif" style={{ fontSize: 19, color: "#fff" }}>+91 90093 30202</div></div>
             </a>
           </div>
@@ -242,7 +242,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                       className="team-img"
                       src={m.img}
                       alt={m.name}
-                      onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/Black@2x-8.png"; }}
+                      onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/Update_Logo.png"; }}
                     />
                     <div className="team-overlay">
                       <div className="sans" style={{ color: "#fff", fontSize: 13, fontWeight: 500 }}>Click to read full profile →</div>
@@ -414,11 +414,11 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 38 }} className="g4">
             <div>
               <div style={{ display: "flex", alignItems: "center", marginBottom: 15 }}>
-                <img src="/Black@2x-8.png" alt="Saxena & Tatke Advocates and Solicitors" style={{ height: 88, width: "auto", objectFit: "contain" }} />
+                <img src="/Update_Logo.png" alt="Saxena & Tatke Advocates and Solicitors" style={{ height: 88, width: "auto", objectFit: "contain" }} />
               </div>
               <p className="sans" style={{ fontSize: 13, color: "rgba(255,255,255,.42)", lineHeight: 1.8, maxWidth: 270 }}>Premier multidisciplinary law firm in Indore. Decades of experience across civil, criminal, commercial and matrimonial law.</p>
             </div>
-            {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["Mitul Saxena Advocate +91 98262 35300", "Amit Tatke Advocate +91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
+            {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["Mitul Saxena Advocate\n+91 98262 35300", "Amit Tatke Advocate\n+91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
               <div key={title}>
                 <div className="sans" style={{ fontSize: 10, letterSpacing: 3, color: "#7EC8E3", textTransform: "uppercase", marginBottom: 14, fontWeight: 600 }}>{title}</div>
                 <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.12)", marginBottom: 14, width: 28 }} />
@@ -434,7 +434,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                   const isClickable = title === "Quick Links" || title === "Practice Areas";
                   const handleClick = title === "Quick Links" ? handleQuickLink : title === "Practice Areas" ? handlePracticeArea : undefined;
                   return (
-                    <div key={it} className="sans" style={{ fontSize: 12.5, color: "rgba(255,255,255,.38)", marginBottom: 8, cursor: isClickable ? "pointer" : "default", transition: "color .2s" }}
+                    <div key={it} className="sans" style={{ fontSize: 12.5, color: "rgba(255,255,255,.38)", marginBottom: 8, cursor: isClickable ? "pointer" : "default", transition: "color .2s", whiteSpace: title === "Contact" ? "pre-line" : "normal" }}
                       onMouseEnter={e => { if (isClickable) e.target.style.color = "rgba(255,255,255,.8)"; }}
                       onMouseLeave={e => { if (isClickable) e.target.style.color = "rgba(255,255,255,.38)"; }}
                       onClick={handleClick}

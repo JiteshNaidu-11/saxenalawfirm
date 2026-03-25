@@ -13,7 +13,7 @@ export const AttorneyPage = ({ attorney, setPage }) => (
           <img
             src={attorney.img}
             alt={attorney.name}
-            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/Black@2x-8.png"; }}
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/Update_Logo.png"; }}
             style={{ width: 140, height: 140, borderRadius: "50%", objectFit: "cover", border: "4px solid rgba(255,255,255,.25)", flexShrink: 0 }}
           />
           <div>

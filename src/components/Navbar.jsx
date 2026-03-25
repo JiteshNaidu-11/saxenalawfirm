@@ -12,7 +12,7 @@ export const Navbar = ({ page, setPage, scrolled, mobileOpen, setMobileOpen }) =
         <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => setPage("home")}>
           <img
             className="navbar-logo"
-            src="/Black@2x-8.png"
+            src="/Update_Logo.png"
             alt="Saxena & Tatke Advocates and Solicitors"
           />
         </div>

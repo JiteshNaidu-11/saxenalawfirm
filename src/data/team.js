@@ -62,7 +62,7 @@ She is engaged in civil and criminal litigation, with specialization in drafting
     exp: "4+ Years",
     spec: "Banking, Finance & Regulatory Advisory",
     // Image not provided yet; use a clean placeholder for now.
-    img: "/Black@2x-8.png",
+    img: "/Update_Logo.png",
     bar: "SEBI & RBI Frameworks",
     edu: "Banking, Finance & Regulatory Matters (Professional Practice)",
     awards: [],
