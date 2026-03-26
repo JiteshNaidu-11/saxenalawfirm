@@ -406,7 +406,8 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                 </div>
                 */}
                 <button type="button" className="btn-navy" style={{ width: "100%", padding: "14px" }} onClick={(e) => { e.preventDefault(); alert("Thank you for your inquiry. We will contact you within 2 business hours."); }}>Submit & Book Consultation →</button>
-                <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 12 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
+                <p className="sans" style={{ fontSize: 12, color: C.mid, textAlign: "center", marginTop: 12, fontWeight: 600 }}>Sundays & holidays by prior appointment</p>
+                <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 8 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
               </div>
             </FadeIn>
           </div>

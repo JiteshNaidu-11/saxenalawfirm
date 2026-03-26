@@ -882,7 +882,8 @@ const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => 
                   <textarea rows={4} placeholder="Briefly describe your legal situation..." style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff", resize: "vertical" }} />
                 </div>
                 <button className="btn-navy" style={{ width: "100%", padding: "14px" }}>Submit & Book Consultation →</button>
-                <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 12 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
+                <p className="sans" style={{ fontSize: 12, color: C.mid, textAlign: "center", marginTop: 12, fontWeight: 600 }}>Sundays & holidays by prior appointment</p>
+                <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 8 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
               </div>
             </FadeIn>
           </div>
