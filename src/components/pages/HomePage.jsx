@@ -5,6 +5,9 @@ import { BLOG_POSTS } from "../../data/blog";
 import { FadeIn, SLabel, SHeading } from "../common/CommonComponents";
 
 export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => {
+  // Temporary toggle: keep testimonials code intact while hiding from UI.
+  const SHOW_CLIENT_STORIES = false;
+
   const statCards = [
     { value: "20+", label: "Years (Mitul Saxena)" },
     { value: "15+", label: "Years (Amit Tatke)" },
@@ -261,42 +264,44 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ padding: "108px 5%", background: "#F2F7FF" }}>
-        <div style={{ maxWidth: 1300, margin: "0 auto" }}>
-          <FadeIn>
-            <div style={{ textAlign: "center", marginBottom: 58 }}>
-              <SLabel>Client Stories</SLabel>
-              <SHeading>What Our Clients <span style={{ color: C.mid }}>Say</span></SHeading>
-              <hr className="divider" style={{ width: 80, margin: "0 auto" }} />
-            </div>
-          </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="g3">
-            {[
-              { n: "Suresh Patel", r: "Business Owner", t: "Saxena and Tatke handled our commercial dispute with exceptional skill. Their strategic approach and clear communication made the entire process smooth. Highly recommended.", img: "https://i.pravatar.cc/60?img=12" },
-              { n: "Meena Gupta", r: "Homeowner", t: "I was dealing with a complex property dispute and felt completely lost. Adv. Saxena and the team were professional, empathetic, and resolved everything in my favour.", img: "https://i.pravatar.cc/60?img=48" },
-              { n: "Rahul Verma", r: "IT Professional", t: "Fast, reliable, and focused on results. They handled my criminal case with total dedication. I am truly grateful to this incredible team for their unwavering support.", img: "https://i.pravatar.cc/60?img=14" },
-            ].map((t, i) => (
-              <FadeIn key={t.n} delay={i * .12}>
-                <div className="lift" style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 8, padding: "32px 24px", position: "relative" }}>
-                  <div style={{ position: "absolute", top: 16, right: 20, fontSize: 48, color: C.pale, fontFamily: "Georgia", fontWeight: 700, lineHeight: 1 }}>"</div>
-                  <div style={{ display: "flex", gap: 2, marginBottom: 14 }}>
-                    {[...Array(5)].map((_, j) => <span key={j} style={{ color: "#F5A623", fontSize: 13 }}>★</span>)}
-                  </div>
-                  <p className="sans" style={{ fontSize: 14.5, fontWeight: 300, lineHeight: 1.85, color: "#3a4a6a", marginBottom: 22, fontStyle: "italic" }}>"{t.t}"</p>
-                  <hr style={{ border: "none", borderTop: `1px solid ${C.border}`, marginBottom: 18 }} />
-                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <img src={t.img} alt={t.n} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
-                    <div>
-                      <div className="serif" style={{ fontSize: 15, color: C.navy }}>{t.n}</div>
-                      <div className="sans" style={{ fontSize: 11, color: C.mid }}>{t.r}</div>
+      {SHOW_CLIENT_STORIES && (
+        <section style={{ padding: "108px 5%", background: "#F2F7FF" }}>
+          <div style={{ maxWidth: 1300, margin: "0 auto" }}>
+            <FadeIn>
+              <div style={{ textAlign: "center", marginBottom: 58 }}>
+                <SLabel>Client Stories</SLabel>
+                <SHeading>What Our Clients <span style={{ color: C.mid }}>Say</span></SHeading>
+                <hr className="divider" style={{ width: 80, margin: "0 auto" }} />
+              </div>
+            </FadeIn>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="g3">
+              {[
+                { n: "Suresh Patel", r: "Business Owner", t: "Saxena and Tatke handled our commercial dispute with exceptional skill. Their strategic approach and clear communication made the entire process smooth. Highly recommended.", img: "https://i.pravatar.cc/60?img=12" },
+                { n: "Meena Gupta", r: "Homeowner", t: "I was dealing with a complex property dispute and felt completely lost. Adv. Saxena and the team were professional, empathetic, and resolved everything in my favour.", img: "https://i.pravatar.cc/60?img=48" },
+                { n: "Rahul Verma", r: "IT Professional", t: "Fast, reliable, and focused on results. They handled my criminal case with total dedication. I am truly grateful to this incredible team for their unwavering support.", img: "https://i.pravatar.cc/60?img=14" },
+              ].map((t, i) => (
+                <FadeIn key={t.n} delay={i * .12}>
+                  <div className="lift" style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 8, padding: "32px 24px", position: "relative", display: "flex", flexDirection: "column", height: "100%" }}>
+                    <div style={{ position: "absolute", top: 16, right: 20, fontSize: 48, color: C.pale, fontFamily: "Georgia", fontWeight: 700, lineHeight: 1 }}>"</div>
+                    <div style={{ display: "flex", gap: 2, marginBottom: 14 }}>
+                      {[...Array(5)].map((_, j) => <span key={j} style={{ color: "#F5A623", fontSize: 13 }}>★</span>)}
+                    </div>
+                    <p className="sans" style={{ fontSize: 14.5, fontWeight: 300, lineHeight: 1.85, color: "#3a4a6a", marginBottom: 22, fontStyle: "italic", flex: 1 }}>"{t.t}"</p>
+                    <hr style={{ border: "none", borderTop: `1px solid ${C.border}`, marginBottom: 18 }} />
+                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                      <img src={t.img} alt={t.n} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
+                      <div>
+                        <div className="serif" style={{ fontSize: 15, color: C.navy }}>{t.n}</div>
+                        <div className="sans" style={{ fontSize: 11, color: C.mid }}>{t.r}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* BLOG PREVIEW */}
       <section id="blog-preview" style={{ padding: "108px 5%", background: "#fff" }}>
@@ -314,17 +319,17 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 22 }} className="g3">
             {BLOG_POSTS.slice(0, 3).map((p, i) => (
               <FadeIn key={p.id} delay={i * .08}>
-                <div className="blog-card" onClick={() => { setActiveBlog(p); setPage("post"); window.scrollTo(0, 0); }}>
+                <div className="blog-card" onClick={() => { setActiveBlog(p); setPage("post"); window.scrollTo(0, 0); }} style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                   <div style={{ overflow: "hidden" }}>
                     <img className="blog-img" src={p.img} alt={p.title} />
                   </div>
-                  <div style={{ padding: "20px 20px 24px" }}>
+                  <div style={{ padding: "20px 20px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
                       <span className="sans" style={{ fontSize: 10, letterSpacing: 2, color: C.mid, textTransform: "uppercase", background: C.pale, padding: "3px 10px", borderRadius: 100 }}>{p.category}</span>
                       <span className="sans" style={{ fontSize: 11.5, color: "#9aaac4" }}>{p.readTime}</span>
                     </div>
                     <h3 className="serif" style={{ fontSize: 18, color: C.navy, lineHeight: 1.3, marginBottom: 10 }}>{p.title}</h3>
-                    <p className="sans" style={{ fontSize: 13.5, color: C.muted, lineHeight: 1.75, marginBottom: 16 }}>{p.excerpt}</p>
+                    <p className="sans" style={{ fontSize: 13.5, color: C.muted, lineHeight: 1.75, marginBottom: 16, flex: 1 }}>{p.excerpt}</p>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                         <img src={p.authorImg} alt={p.author} style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover" }} />
@@ -417,6 +422,76 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                 <img src="/Update_Logo.png" alt="Saxena & Tatke Advocates and Solicitors" style={{ height: 88, width: "auto", objectFit: "contain" }} />
               </div>
               <p className="sans" style={{ fontSize: 13, color: "rgba(255,255,255,.42)", lineHeight: 1.8, maxWidth: 270 }}>Premier multidisciplinary law firm in Indore. Decades of experience across civil, criminal, commercial and matrimonial law.</p>
+              <div style={{ marginTop: 16 }}>
+                <div className="sans" style={{ fontSize: 10, letterSpacing: 2.2, color: "#7EC8E3", textTransform: "uppercase", marginBottom: 8, fontWeight: 600 }}>Social Media</div>
+                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  {[
+                    { label: "Instagram", href: "https://www.instagram.com/" },
+                    { label: "Facebook", href: "https://www.facebook.com/" },
+                    { label: "LinkedIn", href: "https://www.linkedin.com/" },
+                    { label: "WhatsApp", href: "https://wa.me/919826235300?text=Hello%2C%20I%20need%20legal%20consultation%20regarding%20my%20matter.%20Please%20guide%20me." },
+                  ].map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={s.label}
+                      title={s.label}
+                      style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: 12,
+                        textDecoration: "none",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: "1px solid rgba(126,200,227,.35)",
+                        color: "#fff",
+                        background: "linear-gradient(145deg, rgba(46,109,212,.2), rgba(15,45,94,.55))",
+                        boxShadow: "0 6px 16px rgba(6,16,38,.32), inset 0 1px 0 rgba(255,255,255,.09)",
+                        transition: "transform .2s ease, box-shadow .2s ease, border-color .2s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                        e.currentTarget.style.borderColor = "rgba(126,200,227,.7)";
+                        e.currentTarget.style.boxShadow = "0 10px 22px rgba(6,16,38,.4), inset 0 1px 0 rgba(255,255,255,.15)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "none";
+                        e.currentTarget.style.borderColor = "rgba(126,200,227,.35)";
+                        e.currentTarget.style.boxShadow = "0 6px 16px rgba(6,16,38,.32), inset 0 1px 0 rgba(255,255,255,.09)";
+                      }}
+                    >
+                      {s.label === "Instagram" && (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" stroke="currentColor" strokeWidth="1.9" />
+                          <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.9" />
+                          <circle cx="17.4" cy="6.7" r="1.2" fill="currentColor" />
+                        </svg>
+                      )}
+                      {s.label === "Facebook" && (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M14.5 8.2H16.4V5.2H14.1C11.2 5.2 9.9 6.9 9.9 9.8V11.9H7.6V14.9H9.9V20H13V14.9H15.8L16.2 11.9H13V10.1C13 9 13.4 8.2 14.5 8.2Z" fill="currentColor" />
+                        </svg>
+                      )}
+                      {s.label === "LinkedIn" && (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <rect x="4.2" y="9.6" width="3.1" height="10.2" rx="1" fill="currentColor" />
+                          <rect x="4.2" y="4.2" width="3.1" height="3.1" rx="1.55" fill="currentColor" />
+                          <path d="M10 9.6H13V11.1C13.5 10.2 14.6 9.4 16.2 9.4C19.2 9.4 19.8 11.4 19.8 14V19.8H16.7V14.6C16.7 13.4 16.7 11.9 15.1 11.9C13.5 11.9 13.2 13.1 13.2 14.5V19.8H10V9.6Z" fill="currentColor" />
+                        </svg>
+                      )}
+                      {s.label === "WhatsApp" && (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 11.5C20 6.81 16.19 3 11.5 3S3 6.81 3 11.5C3 13.2 3.5 14.8 4.4 16.1L3.6 20.4L7.9 19.6C9.2 20.5 10.8 21 12.5 21C17.19 21 21 17.19 21 12.5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M14.9 14.8C14.4 15.2 13.8 15.4 13.1 15.2C11.8 14.8 10.7 14.1 9.8 13.1C8.9 12 8.3 10.9 8.1 9.7C8 9 8.2 8.4 8.7 7.9L9.1 7.5C9.3 7.3 9.7 7.3 9.9 7.5L10.8 8.4C11 8.6 11 9 10.8 9.2L10.4 9.6C10.2 9.8 10.2 10 10.3 10.2C10.6 10.8 11 11.3 11.5 11.8C12 12.3 12.5 12.7 13.1 13C13.3 13.1 13.5 13 13.7 12.8L14.1 12.4C14.3 12.2 14.7 12.2 14.9 12.4L15.8 13.3C16 13.5 16 13.9 15.8 14.1L14.9 14.8Z" fill="currentColor" />
+                        </svg>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
             {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["Mitul Saxena Advocate\n+91 98262 35300", "Amit Tatke Advocate\n+91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
               <div key={title}>

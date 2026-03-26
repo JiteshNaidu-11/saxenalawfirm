@@ -30,9 +30,6 @@ export const AttorneyPage = ({ attorney, setPage }) => (
                   })()}
                 </span>
               </span>
-              <span style={{ background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.18)", borderRadius: 100, padding: "4px 14px" }} className="sans">
-                <span style={{ fontSize: 11, letterSpacing: 1.5, color: "rgba(255,255,255,.75)", textTransform: "uppercase" }}>{attorney.bar}</span>
-              </span>
             </div>
           </div>
         </div>
