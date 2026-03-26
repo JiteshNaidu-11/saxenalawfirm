@@ -882,7 +882,6 @@ const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => 
                   <textarea rows={4} placeholder="Briefly describe your legal situation..." style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff", resize: "vertical" }} />
                 </div>
                 <button className="btn-navy" style={{ width: "100%", padding: "14px" }}>Submit & Book Consultation →</button>
-                <p className="sans" style={{ fontSize: 12, color: C.mid, textAlign: "center", marginTop: 12, fontWeight: 600 }}>Sundays & holidays by prior appointment</p>
                 <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 8 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
               </div>
             </FadeIn>
@@ -905,7 +904,7 @@ const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => 
               <p className="sans" style={{ fontSize: 13, color: "rgba(255,255,255,.42)", lineHeight: 1.8, maxWidth: 270, marginBottom: 16 }}>Dedicated to delivering justice with integrity since 1999. Your trusted legal partner across Maharashtra.</p>
               <div className="sans" style={{ fontSize: 11, color: "rgba(255,255,255,.28)", fontStyle: "italic" }}>"Audi Alteram Partem"</div>
             </div>
-            {[["Quick Links", ["Home", "About", "Focus Areas", "Team", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["+91 98765 43210", "contact@saxenalawfirm.com", "Court Road, Nashik", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
+            {[["Quick Links", ["Home", "About", "Focus Areas", "Team", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["+91 98765 43210", "contact@saxenalawfirm.com", "Court Road, Nashik", "Mon-Sat: 10AM-7PM", "Sundays & holidays by prior appointment"]]].map(([title, items]) => (
               <div key={title}>
                 <div className="sans" style={{ fontSize: 10, letterSpacing: 3, color: "#7EC8E3", textTransform: "uppercase", marginBottom: 14, fontWeight: 600 }}>{title}</div>
                 <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.12)", marginBottom: 14, width: 28 }} />
@@ -1234,3 +1233,4 @@ export default function App() {
     </>
   );
 }
+

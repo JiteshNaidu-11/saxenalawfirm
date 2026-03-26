@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { C } from "../../data/constants";
 import { TEAM } from "../../data/team";
 import { FOCUS_AREAS } from "../../data/focusAreas";
 import { BLOG_POSTS } from "../../data/blog";
 import { FadeIn, SLabel, SHeading } from "../common/CommonComponents";
+import { isSupabaseConfigured, supabase } from "../../lib/supabase";
 
 export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog }) => {
   // Temporary toggle: keep testimonials code intact while hiding from UI.
@@ -17,6 +19,75 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
 
 
   const scrollTo = id => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); };
+  const [inquiryForm, setInquiryForm] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    legalMatter: "",
+  });
+  const [inquiryStatus, setInquiryStatus] = useState({ type: "", message: "" });
+  const [isSubmittingInquiry, setIsSubmittingInquiry] = useState(false);
+
+  const handleInquiryChange = (field, value) => {
+    setInquiryForm((prev) => ({ ...prev, [field]: value }));
+    if (inquiryStatus.message) {
+      setInquiryStatus({ type: "", message: "" });
+    }
+  };
+
+  const handleInquirySubmit = async (event) => {
+    event.preventDefault();
+
+    if (!isSupabaseConfigured || !supabase) {
+      setInquiryStatus({
+        type: "error",
+        message: "Form is not configured yet. Please connect Supabase keys in .env.",
+      });
+      return;
+    }
+
+    const payload = {
+      full_name: inquiryForm.fullName.trim(),
+      phone: inquiryForm.phone.trim(),
+      email: inquiryForm.email.trim(),
+      legal_matter: inquiryForm.legalMatter,
+      source: "website",
+    };
+
+    if (!payload.full_name || !payload.phone || !payload.email || !payload.legal_matter) {
+      setInquiryStatus({
+        type: "error",
+        message: "Please fill all fields before submitting.",
+      });
+      return;
+    }
+
+    setIsSubmittingInquiry(true);
+    setInquiryStatus({ type: "", message: "" });
+
+    const { error } = await supabase.from("inquiries").insert(payload);
+
+    if (error) {
+      setInquiryStatus({
+        type: "error",
+        message: error.message || "Unable to submit right now. Please try again.",
+      });
+      setIsSubmittingInquiry(false);
+      return;
+    }
+
+    setInquiryStatus({
+      type: "success",
+      message: "Thank you. Your inquiry has been submitted successfully.",
+    });
+    setInquiryForm({
+      fullName: "",
+      phone: "",
+      email: "",
+      legalMatter: "",
+    });
+    setIsSubmittingInquiry(false);
+  };
 
   return (
     <div>
@@ -380,34 +451,82 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
             <FadeIn dir="right">
               <div style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 8, padding: "42px 38px", boxShadow: "0 8px 40px rgba(15,45,94,.07)" }}>
                 <div className="serif" style={{ fontSize: 22, color: C.navy, marginBottom: 24 }}>Send Us a Message</div>
-                <div className="g2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
-                  {[["Full Name", "Your full name"], ["Phone", "+91 xxxxx xxxxx"]].map(([l, p]) => (
-                    <div key={l}>
-                      <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>{l}</label>
-                      <input placeholder={p} style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }} />
-                    </div>
-                  ))}
-                </div>
-                {[["Email", "your@email.com"], ["Legal Matter", null]].map(([l, p]) => (
-                  <div key={l} style={{ marginBottom: 16 }}>
-                    <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>{l}</label>
-                    {p ? <input placeholder={p} style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }} />
-                      : <select style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#3a4a6a", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }}>
-                        <option value="">Select area</option>
-                        <option value="Other">Other</option>
-                        {FOCUS_AREAS.map(f => <option key={f.id}>{f.title}</option>)}
-                      </select>}
-                  </div>
-                ))}
-                {/* Describe Your Case - commented out
-                <div style={{ marginBottom: 24 }}>
-                  <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>Describe Your Case</label>
-                  <textarea rows={4} placeholder="Briefly describe your legal situation..." style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff", resize: "vertical" }} />
-                </div>
-                */}
-                <button type="button" className="btn-navy" style={{ width: "100%", padding: "14px" }} onClick={(e) => { e.preventDefault(); alert("Thank you for your inquiry. We will contact you within 2 business hours."); }}>Submit & Book Consultation →</button>
-                <p className="sans" style={{ fontSize: 12, color: C.mid, textAlign: "center", marginTop: 12, fontWeight: 600 }}>Sundays & holidays by prior appointment</p>
+	                <form onSubmit={handleInquirySubmit}>
+	                  <div className="g2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+	                    <div>
+	                      <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>Full Name</label>
+	                      <input
+	                        required
+	                        value={inquiryForm.fullName}
+	                        onChange={(event) => handleInquiryChange("fullName", event.target.value)}
+	                        placeholder="Your full name"
+	                        style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }}
+	                      />
+	                    </div>
+	                    <div>
+	                      <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>Phone</label>
+	                      <input
+	                        required
+	                        type="tel"
+	                        value={inquiryForm.phone}
+	                        onChange={(event) => handleInquiryChange("phone", event.target.value)}
+	                        placeholder="+91 xxxxx xxxxx"
+	                        style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }}
+	                      />
+	                    </div>
+	                  </div>
+	                  <div style={{ marginBottom: 16 }}>
+	                    <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>Email</label>
+	                    <input
+	                      required
+	                      type="email"
+	                      value={inquiryForm.email}
+	                      onChange={(event) => handleInquiryChange("email", event.target.value)}
+	                      placeholder="your@email.com"
+	                      style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#2a3a5e", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }}
+	                    />
+	                  </div>
+	                  <div style={{ marginBottom: 18 }}>
+	                    <label className="sans" style={{ fontSize: 11, fontWeight: 600, color: "#3a4a6a", letterSpacing: 1, display: "block", marginBottom: 6 }}>Legal Matter</label>
+	                    <select
+	                      required
+	                      value={inquiryForm.legalMatter}
+	                      onChange={(event) => handleInquiryChange("legalMatter", event.target.value)}
+	                      style={{ width: "100%", border: `1.5px solid ${C.border}`, borderRadius: 4, padding: "11px 13px", fontSize: 14, color: "#3a4a6a", fontFamily: "'DM Sans',sans-serif", background: "#fafcff" }}
+	                    >
+	                      <option value="">Select area</option>
+	                      <option value="Other">Other</option>
+	                      {FOCUS_AREAS.map((focusArea) => <option key={focusArea.id}>{focusArea.title}</option>)}
+	                    </select>
+	                  </div>
+	                  <button
+	                    type="submit"
+	                    className="btn-navy"
+	                    disabled={isSubmittingInquiry}
+	                    style={{
+	                      width: "100%",
+	                      padding: "14px",
+	                      opacity: isSubmittingInquiry ? 0.82 : 1,
+	                      cursor: isSubmittingInquiry ? "not-allowed" : "pointer",
+	                    }}
+	                  >
+	                    {isSubmittingInquiry ? "Submitting..." : "Submit & Book Consultation ->"}
+	                  </button>
+	                </form>
                 <p className="sans" style={{ fontSize: 11.5, color: "#8a9ab8", textAlign: "center", marginTop: 8 }}>We respond within 2 business hours. All inquiries are strictly confidential.</p>
+                {inquiryStatus.message ? (
+                  <p
+                    className="sans"
+                    style={{
+                      fontSize: 12.5,
+                      textAlign: "center",
+                      marginTop: 10,
+                      color: inquiryStatus.type === "success" ? "#1c7a48" : "#d02146",
+                    }}
+                  >
+                    {inquiryStatus.message}
+                  </p>
+                ) : null}
               </div>
             </FadeIn>
           </div>
@@ -494,7 +613,7 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
                 </div>
               </div>
             </div>
-            {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["Mitul Saxena Advocate\n+91 98262 35300", "Amit Tatke Advocate\n+91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon–Sat: 10AM–7PM"]]].map(([title, items]) => (
+            {[["Quick Links", ["Home", "About", "Focus Areas", "Founders", "Blog", "Contact"]], ["Practice Areas", FOCUS_AREAS.map(f => f.title)], ["Contact", ["Mitul Saxena Advocate\n+91 98262 35300", "Amit Tatke Advocate\n+91 90093 30202", "70-A Brajeshwari Ext., Indore", "412 Manas Bhawan, RNT Marg, Indore", "Mon-Sat: 10AM-7PM", "Sundays & holidays by prior appointment"]]].map(([title, items]) => (
               <div key={title}>
                 <div className="sans" style={{ fontSize: 10, letterSpacing: 3, color: "#7EC8E3", textTransform: "uppercase", marginBottom: 14, fontWeight: 600 }}>{title}</div>
                 <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.12)", marginBottom: 14, width: 28 }} />
@@ -530,4 +649,6 @@ export const HomePage = ({ setPage, setActiveTeam, setActiveFocus, setActiveBlog
     </div>
   );
 };
+
+
 

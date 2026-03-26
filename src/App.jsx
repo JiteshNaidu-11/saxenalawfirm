@@ -5,9 +5,18 @@ import { AttorneyPage } from "./components/pages/AttorneyPage";
 import { FocusPage } from "./components/pages/FocusPage";
 import { BlogPage } from "./components/pages/BlogPage";
 import { BlogPostPage } from "./components/pages/BlogPostPage";
+import { AdminPanel } from "./components/pages/AdminPanel";
 import { GLOBAL_CSS } from "./styles/globalStyles";
 
+const isAdminPathname = (pathname) => {
+  const normalized = (pathname || "/").replace(/\/+$/, "") || "/";
+  return normalized.toLowerCase() === "/admin";
+};
+
 export default function App() {
+  const [isAdminRoute, setIsAdminRoute] = useState(() =>
+    typeof window !== "undefined" ? isAdminPathname(window.location.pathname) : false
+  );
   const [page, setPage] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,6 +24,14 @@ export default function App() {
   const [activeTeam, setActiveTeam] = useState(null);
   const [activeFocus, setActiveFocus] = useState(null);
   const [activeBlog, setActiveBlog] = useState(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const syncRoute = () => setIsAdminRoute(isAdminPathname(window.location.pathname));
+    syncRoute();
+    window.addEventListener("popstate", syncRoute);
+    return () => window.removeEventListener("popstate", syncRoute);
+  }, []);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 55);
@@ -47,6 +64,15 @@ export default function App() {
       default:         return <HomePage setPage={setPage} setActiveTeam={setActiveTeam} setActiveFocus={setActiveFocus} setActiveBlog={setActiveBlog} />;
     }
   };
+
+  if (isAdminRoute) {
+    return (
+      <>
+        <style>{GLOBAL_CSS}</style>
+        <AdminPanel />
+      </>
+    );
+  }
 
   return (
     <>
